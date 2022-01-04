@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.nameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar2);
 
         nameEditText.addTextChangedListener(createTextWatcher(nameEditText));
         passwordEditText.addTextChangedListener(createTextWatcher(passwordEditText));
