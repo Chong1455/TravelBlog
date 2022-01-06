@@ -3,6 +3,7 @@ package com.cks.travelblog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,17 +24,21 @@ import java.util.List;
 public class BlogListActivity extends AppCompatActivity {
 
     private MainAdapter adapter;
+    private SwipeRefreshLayout refreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog_list);
 
-        adapter = new MainAdapter();
+        adapter = new MainAdapter(blog -> BlogDetailActivity.startBlogDetailActivity(this, blog));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        refreshLayout = findViewById(R.id.refresh);
+        refreshLayout.setOnRefreshListener(this::loadData);
 
         loadData();
 //        Intent intent = new Intent(this, BlogDetailActivity.class);
@@ -41,10 +46,12 @@ public class BlogListActivity extends AppCompatActivity {
     }
 
     private void loadData() {
+        refreshLayout.setRefreshing(true);
         BlogHttpClient.INSTANCE.loadBlogArticles(new BlogArticlesCallback() {
             @Override
             public void onSuccess(List<Blog> blogList) {
                 runOnUiThread(() -> {
+                    refreshLayout.setRefreshing(false);
                     adapter.submitList(blogList);
                 });
             }

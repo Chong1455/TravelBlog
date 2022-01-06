@@ -1,10 +1,41 @@
 package com.cks.travelblog.http;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
-public class Author {
+public class Author implements Parcelable {
     private String name;
     private String avatar;
+
+    protected Author(Parcel in) {
+        name = in.readString();
+        avatar = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(avatar);
+    }
+
+    public static final Creator<Author> CREATOR = new Creator<Author>() {
+        @Override
+        public Author createFromParcel(Parcel parcel) {
+            return new Author(parcel);
+        }
+
+        @Override
+        public Author[] newArray(int i) {
+            return new Author[i];
+        }
+    };
 
     public String getName() {
         return name;

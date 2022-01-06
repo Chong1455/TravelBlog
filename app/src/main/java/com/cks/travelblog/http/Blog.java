@@ -1,8 +1,11 @@
 package com.cks.travelblog.http;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
-public class Blog {
+public class Blog implements Parcelable {
     private String id;
     private Author author;
     private String title;
@@ -11,6 +14,47 @@ public class Blog {
     private String description;
     private int views;
     private float rating;
+
+    protected Blog(Parcel in) {
+        id = in.readString();
+        title = in.readString();
+        date = in.readString();
+        image = in.readString();
+        description = in.readString();
+        views = in.readInt();
+        rating = in.readFloat();
+        author = in.readParcelable(Author.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(title);
+        parcel.writeString(date);
+        parcel.writeString(image);
+        parcel.writeString(description);
+        parcel.writeInt(views);
+        parcel.writeFloat(rating);
+        parcel.writeParcelable(author, 0);
+
+    }
+
+    public static final Creator<Blog> CREATOR = new Creator<Blog>() {
+        @Override
+        public Blog createFromParcel(Parcel parcel) {
+            return new Blog(parcel);
+        }
+
+        @Override
+        public Blog[] newArray(int i) {
+            return new Blog[i];
+        }
+    };
 
     public String getTitle() {
         return title;
