@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,11 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.cks.travelblog.R;
 import com.cks.travelblog.http.Blog;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 public class MainAdapter extends ListAdapter<Blog, MainAdapter.MainViewHolder> {
 
@@ -41,6 +47,11 @@ public class MainAdapter extends ListAdapter<Blog, MainAdapter.MainViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         holder.bindTo(getItem(position));
+    }
+
+    public void setData(@Nullable List<Blog> list) {
+        originalList = list;
+        super.submitList(list);
     }
 
     static class MainViewHolder extends RecyclerView.ViewHolder {
@@ -82,4 +93,28 @@ public class MainAdapter extends ListAdapter<Blog, MainAdapter.MainViewHolder> {
                     return oldItem.equals(newItem);
                 }
             };
+
+    public void sortByTitle() {
+        List<Blog> currentList = new ArrayList<>(getCurrentList());
+        Collections.sort(currentList, (o1, o2) -> o1.getTitle().compareTo(o2.getTitle()));
+        submitList(currentList);
+    }
+
+    public void sortByDate() {
+        List<Blog> currentList = new ArrayList<>(getCurrentList());
+        Collections.sort(currentList, (o1, o2) -> o2.getDateMillis().compareTo(o1.getDateMillis()));
+        submitList(currentList);
+    }
+
+    private List<Blog> originalList = new ArrayList<>();
+
+    public void filter(String query) {
+        List<Blog> filteredList = new ArrayList<>();
+        for (Blog blog : originalList) {
+            if (blog.getTitle().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(blog);
+            }
+        }
+        submitList(filteredList);
+    }
 }

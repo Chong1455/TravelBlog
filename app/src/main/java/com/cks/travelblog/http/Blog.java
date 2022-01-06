@@ -3,6 +3,9 @@ package com.cks.travelblog.http;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Blog implements Parcelable {
@@ -14,6 +17,8 @@ public class Blog implements Parcelable {
     private String description;
     private int views;
     private float rating;
+
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 
     protected Blog(Parcel in) {
         id = in.readString();
@@ -62,6 +67,16 @@ public class Blog implements Parcelable {
 
     public String getDate() {
         return date;
+    }
+
+    public Long getDateMillis() {
+        try {
+            Date date = dateFormat.parse(getDate());
+            return date != null ? date.getTime() : null;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String getImage() {
