@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1094472119985",
+    "project_id": "travelblog-2f5eb",
+    "storage_bucket": "travelblog-2f5eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094472119985:android:e86bce09e42bfdd7379490",
+        "android_client_info": {
+          "package_name": "com.cks.travelblog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094472119985-vjhe73c599snuajthn9hu9v8uoij1lao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBENH4-6Qr9pnuQ4LBkIFqpLA0gL7UWMM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094472119985-vjhe73c599snuajthn9hu9v8uoij1lao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

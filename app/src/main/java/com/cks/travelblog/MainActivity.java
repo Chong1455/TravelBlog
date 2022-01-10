@@ -1,5 +1,6 @@
 package com.cks.travelblog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,17 +11,26 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText nameEditText;
+    EditText emailEditText;
     EditText passwordEditText;
     Button loginButton;
     ProgressBar progressBar;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -35,29 +45,47 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        nameEditText = findViewById(R.id.nameEditText);
+        emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         progressBar = findViewById(R.id.progressBar2);
 
-        nameEditText.addTextChangedListener(createTextWatcher(nameEditText));
+        emailEditText.addTextChangedListener(createTextWatcher(emailEditText));
         passwordEditText.addTextChangedListener(createTextWatcher(passwordEditText));
     }
 
     public void onLoginClicked(View view) {
-        String username = nameEditText.getText().toString();
+        String username = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
         if (username.isEmpty()) {
-            nameEditText.setError("Username must not be empty!");
+            emailEditText.setError("Email must not be empty!");
         } else if (password.isEmpty()) {
             passwordEditText.setError("Password must not be empty!");
-        } else if (!username.equals("admin") || !password.equals("admin")) {
-            showErrorDialog();
-        } else {
-            performLogin();
+        }  else {
+            mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                performLogin();
+                            } else {
+                                mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+                                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    // Add to database
+                                                    performLogin();
+                                                } else {
+                                                    Toast.makeText(MainActivity.this, "Login failed. Try again!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+                    });
         }
-
     }
 
     private TextWatcher createTextWatcher(EditText editText) {
@@ -77,18 +105,10 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void showErrorDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("Login Failed")
-                .setMessage("Username or password is incorrect. Please try again!")
-                .setPositiveButton("OK", null)
-                .show();
-    }
-
-    private void performLogin() {
+    public void performLogin() {
         sharedPreferences.edit().putBoolean("loginState", true).apply();
 
-        nameEditText.setEnabled(false);
+        emailEditText.setEnabled(false);
         passwordEditText.setEnabled(false);
         loginButton.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
