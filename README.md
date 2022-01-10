@@ -17,7 +17,7 @@ An app that shows blog articles about the world's most popular travel destinatio
 ![Image](https://github.com/Chong1455/TravelBlog/blob/master/screenshots/sort.jpg)
 
 # Deployed version
-Play Store👉: https://play.google.com/store/apps/details?id=com.cks.memorableplaces
+Play Store👉: https://play.google.com/store/apps/details?id=com.cks.travelblog
 
 # Prerequisites
 Please install or have installed the following:
