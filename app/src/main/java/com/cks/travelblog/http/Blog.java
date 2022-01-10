@@ -3,13 +3,20 @@ package com.cks.travelblog.http;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Blog implements Parcelable {
-    private String id;
+    @PrimaryKey
+    private int id;
+    @Embedded
     private Author author;
     private String title;
     private String date;
@@ -20,8 +27,19 @@ public class Blog implements Parcelable {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 
+    public Blog(int id, Author author, String title, String date, String image, String description, int views, float rating) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.date = date;
+        this.image = image;
+        this.description = description;
+        this.views = views;
+        this.rating = rating;
+    }
+
     protected Blog(Parcel in) {
-        id = in.readString();
+        id = in.readInt();
         title = in.readString();
         date = in.readString();
         image = in.readString();
@@ -38,7 +56,7 @@ public class Blog implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(id);
+        parcel.writeInt(id);
         parcel.writeString(title);
         parcel.writeString(date);
         parcel.writeString(image);
@@ -107,7 +125,7 @@ public class Blog implements Parcelable {
         this.author = author;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
