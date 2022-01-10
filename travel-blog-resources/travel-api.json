@@ -1,0 +1,134 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "G'day from Sydney",
+      "date": "August 2, 2019",
+      "views": 2687,
+      "rating": 4.4,
+      "image": "/images/sydney_image.jpg",
+      "author": {
+        "name": "Grayson Wells",
+        "avatar": "/avatars/avatar1.jpg"
+      },
+      "description": "G'day mate! Welcome to Sydney, where you come for the beaches, but stay for the restaurants, the culture and the good vibes (but also, the beaches). We promise we're friendly here, but between the one-way streets, our four different forms of public transport and the fact that our urban design is more â€˜bowl of spaghettiâ€™ than â€˜gridâ€™, we know it can all be a little bit confusing. Hereâ€™s how to survive and thrive in the city, whether youâ€™re here for a few days, or the rest of your life.<br><br>Looking to take a break from city life? Head to these glorious campsites near Sydney, or stretch into the weekend on these short getaways."
+    },
+    {
+      "id": 2,
+      "title": "Discover the New York",
+      "date": "June 13, 2018",
+      "views": 1893,
+      "rating": 4.2,
+      "image": "/images/new_york.jpg",
+      "author": {
+        "name": "Charles Landebert",
+        "avatar": "/avatars/avatar2.jpg"
+      },
+      "description": "For the most part, New York City is an incredible place to visit when you're young and single. The tallest buildings, biggest museums, and best pizza—NYC is a city of superlatives, and it lives up to every one of them. From the dazzling spectacle of Broadway to MoMA’s world-class galleries, the boutiques of SoHo, and the array of restaurants offering cuisines from every corner of the world. It's exciting, upbeat, and there's always something to discover every time you visit. If you're an on the go kind of person, the city is the place for you!"
+    },
+    {
+      "id": 3,
+      "title": "London",
+      "date": "February 12, 2017",
+      "views": 1326,
+      "rating": 4.3,
+      "image": "/images/london.jpg",
+      "author": {
+        "name": "Euterpe Renata",
+        "avatar": "/avatars/avatar3.jpg"
+      },
+      "description": "Immersed in history, London's rich seams of eye-opening antiquity are everywhere. The city's buildings are striking milestones in a unique and beguiling biography, and a great many of them – the Tower of London, Westminster Abbey, Big Ben – are instantly recognisable landmarks. It’s a place where travellers can time-hop through the city, and when they’re weary, do as Londoners do and grab a “cuppa” tea."
+    },
+    {
+      "id": 4,
+      "title": "Paris",
+      "date": "March 1, 2016",
+      "views": 2419,
+      "rating": 4.1,
+      "image": "/images/paris.jpg",
+      "author": {
+        "name": "Hadyn Armida",
+        "avatar": "/avatars/avatar4.jpg"
+      },
+      "description": "Bonjour and welcome to Paris! Paris lures with its magnificent art, architecture, culture, and cuisine Parisians are culturally enlightened and continue to set new boundaries in fashion and the arts. Though Paris has been occupied on occasions throughout history, the city has never been destroyed by war. Therefore, much of the city exists as it always has. The city has long been considered one of the world’s most romantic cities. In the evenings, streetlights reflect off the white limestone buildings radiating blues, pinks, and purples. Nowhere else on earth makes the heart swoon like the mention of Paris."
+    },
+    {
+      "id": 5,
+      "title": "Los Angeles",
+      "date": "June 25, 2015",
+      "views": 1124,
+      "rating": 4,
+      "image": "/images/los_angeles.jpg",
+      "author": {
+        "name": "Morgan Cortney",
+        "avatar": "/avatars/avatar5.jpg"
+      },
+      "description": "Los Angeles has always been shorthand for cinematic sparkle with the famous Hollywood sign visibly looming over the city. Hollywood should be on every traveler's bucket list of must see and do! If you want to take in the most famous LA haunts, and taste a little celebrity culture, then Universal Studios is the obvious place to start. You can also go celeb spotting at the designer boutiques that are prevalent in Beverley Hills and Rodeo Drive. If you can’t spot any real life celebrities then having a wander along the Hollywood Walk of Fame will at least get you in touch with some of the stars, whose names are immortalised in a series of brass plaques on the sidewalk."
+    },
+    {
+      "id": 6,
+      "title": "Hong Kong",
+      "date": "November 29, 2014",
+      "views": 2549,
+      "rating": 3.8,
+      "image": "/images/hong_kong.jpg",
+      "author": {
+        "name": "Nisha Felicia",
+        "avatar": "/avatars/avatar6.jpg"
+      },
+      "description": "Hong Kong is known the world over as a glamorous city and a top choice for luxury shopping. But this city-state is steeped in culture and history, and has a lot more to offer than mouthwatering dim sum and an impressive skyline. Hong Kong has an energy about it that is hard to describe. Around every corner is something new and unique, whether it's an ancient temple, a shop selling the latest electronic gadget, or a man taking his bird in a cage for a walk. Hong Kong has another side as well, where you'll find forest-covered mountains, hiking trails, beautiful beaches, islands, and traditional fishing villages."
+    },
+    {
+      "id": 7,
+      "title": "Melbourne",
+      "date": "April 6, 2013",
+      "views": 1356,
+      "rating": 5,
+      "image": "/images/melbourne.jpg",
+      "author": {
+        "name": "Jaime Pramod",
+        "avatar": "/avatars/avatar7.jpg"
+      },
+      "description": "Colourful, lively Melbourne has broad appeal for every type of traveller, from cosy cafes to local art to Australian and Aboriginal history to spectator sports. Start your day with a \"flat white\" coffee before hopping on the the free City Circle Tram loop to check out singular attractions like the Royal Botanical Gardens and the Healesville Sanctuary, where animal friends await. Melbourne is also a great starting point for daytrips to explore the Great Ocean Road and Phillip Island."
+    },
+    {
+      "id": 8,
+      "title": "Chicago",
+      "date": "July 17, 2012",
+      "views": 1589,
+      "rating": 4.3,
+      "image": "/images/chicago.jpg",
+      "author": {
+        "name": "Eva Sofie",
+        "avatar": "/avatars/avatar8.jpg"
+      },
+      "description": "The Windy City is an eclectic mix of modern art, buzzworthy dining, cutting-edge comedy, and beloved sports teams. Snap a photo of your reflection in the silver Cloud Gate sculpture at Millennium Park before heading to Grant Park to get hit with the refreshing spray of Buckingham Fountain. There are dozens of museums and theatre companies in Chicago, so a cultural experience is never hard to find. You’re sure to laugh to the point of tears at the Second City Theatre, the launch pad of many famous comedians."
+    },
+    {
+      "id": 9,
+      "title": "Lisbon",
+      "date": "June 27, 2011",
+      "views": 2687,
+      "rating": 4.4,
+      "image": "/images/lisbon.jpg",
+      "author": {
+        "name": "Grayson Wells",
+        "avatar": "/avatars/avatar9.jpg"
+      },
+      "description": "Assemble a city-break destination from a wishlist of components and you get Lisbon: a wide glittering river, limpid skies, steep cobbled streets, palaces, churches (and a castle, of course), tiles in pink, mint and indigo, and cheap, fresh, grilled sardines to eat outside a tasca (bar) in the sun. It’s a place so beautiful you can’t believe people are using it to live in. And Lisbon is decidedly lively. Every year it seems there is more to do, more to eat and more distance to cover."
+    },
+    {
+      "id": 10,
+      "title": "Miami",
+      "date": "December 5, 2011",
+      "views": 2687,
+      "rating": 4.1,
+      "image": "/images/miami.jpg",
+      "author": {
+        "name": "Elizabeth olsen",
+        "avatar": "/avatars/avatar10.jpg"
+      },
+      "description": "People watching is a great pastime in Miami's South Beach, which draws celebrities and beautiful people in skimpy swim attire to see and be seen. The wide and fine, white sand-covered beaches are popular spots for fashion photo shoots, so you're sure to see models. The area is known for its hip clubs and wild nightlife as well as numerous excellent restaurants."
+    }
+  ]
+}
