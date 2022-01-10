@@ -9,11 +9,6 @@ public class Author implements Parcelable {
     private String name;
     private String avatar;
 
-    public Author(String name, String avatar) {
-        this.name = name;
-        this.avatar = avatar;
-    }
-
     protected Author(Parcel in) {
         name = in.readString();
         avatar = in.readString();
